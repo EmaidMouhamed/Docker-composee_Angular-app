@@ -1,0 +1,52 @@
+<div class="col-md-8 offset-2 mt-5">
+
+    <p style="text-align: center; font-size: large; font-weight: bolder;">
+        Liste des produits
+    </p>
+    <table class="table table-striped border">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">PU</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of produits">
+                <td>{{ p.id }}</td>
+                <td>{{ p.nom }}</td>
+                <td>{{ p.quantite }}</td>
+                <td>{{ p.pu }}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteProd(p.id)">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <form (submit)="addProd()">
+        <p style="text-align: center; font-size: large; font-weight: bolder; margin-top: 50px;">
+            Formulaire d'ajout de produits
+        </p>
+        <div class="col mb-2">
+            <input type="text" class="form-control" placeholder="Nom produit" [(ngModel)]="newProduct.nom"
+                name="nomProduit" required />
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="number" class="form-control" placeholder="Quantité (Kg)" [(ngModel)]="newProduct.quantite"
+                    name="quantiteProduit" required />
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" placeholder="Prix Unitaire (f.cfa)"
+                    [(ngModel)]="newProduct.pu" name="prixUnitaire" required />
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mt-2">
+            <button class="btn btn-success" type="submit">Ajouter</button>
+        </div>
+    </form>
+</div>
