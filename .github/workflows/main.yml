@@ -1,4 +1,4 @@
-name: CI/CD Angular with Docker
+name: Build and Push Docker Image
 
 on:
   push:
